@@ -29,5 +29,7 @@ namespace MvcPlayground.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MvcPlayground.Models.Song> Songs { get; set; }
     }
 }

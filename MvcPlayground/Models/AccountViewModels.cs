@@ -54,6 +54,11 @@ namespace MvcPlayground.Models
         public string Email { get; set; }
 
         [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -68,6 +73,12 @@ namespace MvcPlayground.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Username")]
+        [StringLength(128, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 5)]
+        public string Username { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

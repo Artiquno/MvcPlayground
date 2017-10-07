@@ -1,6 +1,6 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +21,35 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.business-header {
+    height: 50vh;
+    min-height: 300px;
+    background: url('/Content/Images/question_mark_header.jpg') center center no-repeat scroll;
+    background-size: cover;
+    color: #112a27;
+}
+
+.card {
+    height: 100%;
+    box-shadow: 1px 1px 4px #666;
+}
+.card-body {
+    height: 100%;
+}
+.card .card-body, .card-footer {
+    padding: 5px;
+}
+.card .image-holder {
+    width: auto;
+}
+.card .image-holder img {
+    width: 100%;
+}
+.card-footer {
+    overflow: hidden;
+}
+.card-footer a.btn {
+    float: right;
 }

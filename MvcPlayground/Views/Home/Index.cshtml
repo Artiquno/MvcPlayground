@@ -1,31 +1,85 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Welcome!";
+	var quotes = new Dictionary<string, Dictionary<string, string>> {
+		["Arcade Games"] = new Dictionary<string, string>
+		{
+			["quote"] = "This is it dudes, my favourite place in the world. Everything I know I learned right here. A frog taught me how to cross the street. When my house was haunted I learned how to eat ghosts. And this thing taught me how to dance",
+			["href"] = "ArcadeGames",
+			["image"] = "question_mark_square.jpg"
+		},
+		["Monster Hunt"] = new Dictionary<string, string>
+		{
+			["quote"] = "All right, if we wanna win this contest, we've gotta do it right! Think: what's the number one problem with most monster hunts? You're a side character and you die in the first five minutes of the movie. Dude, am I a side character? Do you ever think about stuff like that?",
+			["href"] = "MonsterHunt",
+			["image"] = "question_mark_square.jpg"
+		},
+		["Weirdmaggedon"] = new Dictionary<string, string>
+		{
+			["quote"] = "When the universe is broken, only one handyman can fix it!",
+			["href"] = "Weirdmaggedon",
+			["image"] = "question_mark_square.jpg"
+		}
+	};
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@section HeaderImage
+{
+<header class="business-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="display-3 text-center text-white mt-4">Nameless - If you don't know our name, it's because <strong>we don't either</strong>!</h1>
+			</div>
+		</div>
+	</div>
+</header>
+}
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+	<div class="col-sm-8">
+		<h2 class="mt-4">What We Do</h2>
+		<p>
+			Are you tired of real doors, cluttering up your house, where you open 'em, and they actually go somewhere? And you go in another room?
+		</p>
+		<p>
+			Get on down to "Real Fake Doors"! That's us. Fill a whole room up with 'em. See? Watch, check this out! Won't open. Won't open. Not this one, not this one. None of 'em open! FakeDoors.com is our website, so check it out for a lot of really great deals on fake doooooooors!
+		</p>
+		<p>
+			<a class="btn btn-primary btn-lg" href="http://FakeDoors.com">Go get a real fake dooooooooooooooor! &raquo;</a>
+		</p>
+	</div>
+	<div class="col-sm-4">
+		<h2 class="mt-4">Contact Us</h2>
+		<address>
+			<strong>Start Bootstrap</strong>
+			<br>3481 Melrose Place
+			<br>Beverly Hills, CA 90210
+			<br>
+		</address>
+		<address>
+			<abbr title="Phone">P:</abbr> (123) 456-7890
+			<br>
+			<abbr title="Email">E:</abbr>
+			<a href="mailto:#">name@example.com</a>
+		</address>
+	</div>
+</div>
+<div class="row">
+	@foreach(var quote in quotes)
+	{
+	<div class="col-sm-4">
+		<div class="card">
+			<div class="image-holder">
+				<img class="card-img-top" src="~/Content/Images/@quote.Value["image"]" alt="Soos?" />
+			</div>
+			<div class="card-body">
+				<h4 class="card-title">@quote.Key</h4>
+				<p class="card-text">@quote.Value["quote"]</p>
+			</div>
+			<div class="card-footer">
+				<a href="~/Quotes/@quote.Value["href"]" class="btn btn-primary">Find Out More!</a>
+			</div>
+		</div>
+	</div>
+	}
 </div>

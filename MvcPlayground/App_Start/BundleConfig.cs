@@ -23,9 +23,20 @@ namespace MvcPlayground
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/moment").Include(
+                        "~/bower_components/moment/min/moment.min.js",
+                        "~/bower_components/moment/min/locales.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/bower_components/angular/angular.min.js",
+                        "~/bower_components/angular-touch/angular-touch.min.js",
+                        "~/bower_components/ngstorage/ngStorage.min.js",
+                        "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/bower_components/font-awesome/font-awesome.min.css"));
         }
     }
 }

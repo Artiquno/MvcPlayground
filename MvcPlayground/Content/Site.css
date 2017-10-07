@@ -53,3 +53,48 @@ textarea {
 .card-footer a.btn {
     float: right;
 }
+
+.has-error {
+    color: #e11;
+}
+
+.profile-image {
+    width: 256px;
+    height: 256px;
+    border-radius: 50%;
+    border: 4px dashed #29de63;
+    display: block;
+    overflow: hidden;
+}
+.profile-image 
+.profile-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.profile-image .image-helper {
+    padding-top: 17%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.1);
+    text-align: center;
+    font-size: 128px;
+    -moz-transition: all ease-in-out 0.5s;
+    -o-transition: all ease-in-out 0.5s;
+    -webkit-transition: all ease-in-out 0.5s;
+    transition: all ease-in-out 0.5s;
+}
+.profile-image.no-border {
+    border: none;
+}
+.profile-image .image-helper:hover {
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+[ng-cloak] {
+    display: none;
+}

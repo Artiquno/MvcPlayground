@@ -27,6 +27,9 @@ namespace MvcPlayground
                         "~/bower_components/moment/min/moment.min.js",
                         "~/bower_components/moment/min/locales.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/others").Include(
+                        "~/node_modules/sweetalert/dist/sweetalert.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/bower_components/angular/angular.min.js",
                         "~/bower_components/angular-touch/angular-touch.min.js",

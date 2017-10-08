@@ -59,14 +59,20 @@ textarea {
 }
 
 .profile-image {
-    width: 256px;
-    height: 256px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     border: 4px dashed #29de63;
     display: block;
     overflow: hidden;
+    margin-bottom: 15px;
 }
-.profile-image 
+@media screen and (max-width: 450px) {
+    .profile-image {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 .profile-image img {
     width: 100%;
     height: 100%;
@@ -97,4 +103,8 @@ textarea {
 
 [ng-cloak] {
     display: none;
+}
+
+[ngf-select] {
+    cursor: pointer;
 }

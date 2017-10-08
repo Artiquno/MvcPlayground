@@ -5,81 +5,92 @@
 <div ng-app="playground" ng-controller="PlaygroundController">
 	<h2>So, what should we do?</h2>
 	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-10">
-				<form name="form" novalidate ng-submit="submit($event)">
-					<div ng-model="user.profileImage" ngf-drop ngf-select ngf-drag-over-style ngf-resize="imageResizeOptions" class="profile-image">
-						<img ngf-src="user.profileImage" alt="" />
-						<div ng-hide="user.profileImage" class="image-helper">
-							<i class="fa fa-plus"></i>
-						</div>
+	<form name="form" novalidate ng-submit="submit($event)" class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<div ng-model="user.profileImage" ngf-drop ngf-select ngf-drag-over-style ngf-resize="imageResizeOptions" class="profile-image">
+					<img ngf-src="user.profileImage" alt="" />
+					<div ng-hide="user.profileImage" class="image-helper">
+						<i class="fa fa-plus"></i>
 					</div>
-					<div class="form-group">
-						<label class="form-control-label">
-							<span>Username</span>
-							<input type="text" class="form-control" name="username" required ng-model="user.username" ng-pattern="'[\\w\\d_-]+'"/>
-						</label>
-						<div ng-cloak ng-show="form.$submitted || form.username.$touched" class="has-error">
-							<span ng-show="form.username.$error.required">
-								You need to fill this out <span ng-bind="user.name || 'dude'"></span>!
-							</span>
-							<span ng-show="form.username.$error.pattern">
-								What the p#$%!n is that character doing there <span ng-bind="user.name || 'dude'"></span>?!
-							</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="form-control-label">
-							<span>Email</span>
-							<input type="email" class="form-control" name="email" required ng-model="user.email" />
-						</label>
-						<div ng-cloak ng-show="form.$submitted || form.email.$touched" class="has-error">
-							<span ng-show="form.email.$error.required">
-								Come on <span ng-bind="user.name || 'dude'"></span>, we already know your email address so just write it already!
-							</span>
-							<span ng-show="form.email.$error.email">
-								This isn't an email address <span ng-bind="user.name || 'dude'"></span>!
-							</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="form-control-label">
-							<span>Name</span>
-							<input type="text" class="form-control" name="name" required ng-pattern="'[\\w\\d ]+'" ng-model="user.name" />
-						</label>
-						<div ng-cloak ng-show="form.$submitted || form.name.$touched" class="has-error">
-							<span ng-show="form.name.$error.required">
-								Tell us who you are dude!
-							</span>
-							<span ng-show="form.name.$error.pattern">
-								A real name, not some random characters <span ng-bind="user.name || 'dude'"></span>!
-							</span>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="form-control-label">
-							<span>Last Name</span>
-							<input class="form-control" type="text" name="lastName" ng-model="user.lastName" required ng-pattern="'[\\w\\d ]+'"/>
-						</label>
-						<div ng-cloak class="has-error" ng-show="form.$submitted || form.lastName.$touched">
-							<span ng-show="form.lastName.$error.required">
-								I'm sure you have a last name <span ng-bind="user.name || 'dude'"></span>. Just enter it so we can all go home!
-							</span>
-							<span ng-show="form.lastName.$error.pattern">
-								I see some weird characters there <span ng-bind="user.name || 'dude'"></span>!
-							</span>
-						</div>
-					</div>
-					<button type="submit" class="btn btn-primary">Do it!</button>
-				</form>
+				</div>
 			</div>
 		</div>
-	</div>
+		<div class="form-group">
+			<label class="control-label col-md-2" for="username">
+				<span>Username</span>
+			</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="username" name="username" required ng-model="user.username" ng-pattern="'[\\w\\d_-]+'"/>
+			</div>
+			<div ng-cloak ng-show="form.$submitted || form.username.$touched" class="has-error col-md-offset-2 col-md-10">
+				<span ng-show="form.username.$error.required">
+					You need to fill this out <span ng-bind="user.name || 'dude'"></span>!
+				</span>
+				<span ng-show="form.username.$error.pattern">
+					What the p#$%!n is that character doing there <span ng-bind="user.name || 'dude'"></span>?!
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2" for="email">
+				<span>Email</span>
+			</label>
+			<div class="col-md-10">
+				<input type="email" class="form-control" id="email" name="email" required ng-model="user.email" />
+			</div>
+			<div ng-cloak ng-show="form.$submitted || form.email.$touched" class="has-error col-md-offset-2 col-md-10">
+				<span ng-show="form.email.$error.required">
+					Come on <span ng-bind="user.name || 'dude'"></span>, we already know your email address so just write it already!
+				</span>
+				<span ng-show="form.email.$error.email">
+					This isn't an email address <span ng-bind="user.name || 'dude'"></span>!
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2" for="name">
+				<span>Name</span>
+			</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control" id="name" name="name" required ng-pattern="'[\\w\\d ]+'" ng-model="user.name" />
+			</div>
+			<div ng-cloak ng-show="form.$submitted || form.name.$touched" class="has-error col-md-offset-2 col-md-10">
+				<span ng-show="form.name.$error.required">
+					Tell us who you are dude!
+				</span>
+				<span ng-show="form.name.$error.pattern">
+					A real name, not some random characters <span ng-bind="user.name || 'dude'"></span>!
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-2" for="lastName">
+				<span>Last Name</span>
+			</label>
+			<div class="col-md-10">
+				<input class="form-control" type="text" id="lastName" name="lastName" ng-model="user.lastName" required ng-pattern="'[\\w\\d ]+'" />
+				<div ng-cloak class="has-error" ng-show="form.$submitted || form.lastName.$touched">
+					<span ng-show="form.lastName.$error.required">
+						I'm sure you have a last name <span ng-bind="user.name || 'dude'"></span>. Just enter it so we can all go home!
+					</span>
+					<span ng-show="form.lastName.$error.pattern">
+						I see some weird characters there <span ng-bind="user.name || 'dude'"></span>!
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<button type="submit" class="btn btn-primary">Do it!</button>
+			</div>
+		</div>
+	</form>
 </div>
 
 @section Scripts {
 	@Scripts.Render("~/bundles/angular")
+	@Scripts.Render("~/bundles/others")
 	<script src="~/bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>
 
 	<script src="~/Scripts/angular/modules/playground.js"></script>

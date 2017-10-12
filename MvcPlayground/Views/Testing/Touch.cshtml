@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Touch";
+}
+
+<style>
+	.the-big-bad-box {
+		height: 100px;
+		width: 300px;
+		display: block;
+		overflow: hidden;
+		background-color: #f2f2f2;
+
+		-moz-transition: all ease-in-out 1s;
+		-o-transition: all ease-in-out 1s;
+		-webkit-transition: all ease-in-out 1s;
+		transition: all ease-in-out 1s;
+	}
+	.leftie {
+		margin-left: 0;
+	}
+	.rightie {
+		margin-left: 200px;
+	}
+</style>
+<h2>Touch</h2>
+
+<div ng-app="touch" ng-controller="TouchController">
+	<div slider>
+		<div class="the-big-bad-box"></div>
+	</div>
+</div>
+
+@section Scripts {
+@Scripts.Render("~/bundles/angular")
+@Scripts.Render("~/bundles/others")
+<script src="~/Scripts/angular/modules/touch.js"></script>
+<script src="~/Scripts/angular/controllers/touch.js"></script>
+}

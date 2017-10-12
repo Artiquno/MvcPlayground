@@ -13,5 +13,10 @@ namespace MvcPlayground.Controllers
         {
             return View();
         }
+
+        public ActionResult Touch()
+        {
+            return View();
+        }
     }
 }

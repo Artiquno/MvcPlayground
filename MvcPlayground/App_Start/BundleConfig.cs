@@ -34,7 +34,9 @@ namespace MvcPlayground
                         "~/bower_components/angular/angular.min.js",
                         "~/bower_components/angular-touch/angular-touch.min.js",
                         "~/bower_components/ngstorage/ngStorage.min.js",
-                        "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"));
+                        "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
+                        "~/bower_components/hammerjs/hammer.min.js",
+                        "~/bower_components/angular-gestures/gestures.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

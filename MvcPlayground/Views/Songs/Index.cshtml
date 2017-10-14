@@ -12,13 +12,28 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Album.Cover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.File.Path)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre.Name)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DiscNr)
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Length)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TrackNr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiscNr)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Rating)
@@ -30,7 +45,7 @@
             @Html.DisplayNameFor(model => model.Lyrics)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Length)
+            @Html.DisplayNameFor(model => model.Cover)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Downloads)
@@ -41,13 +56,28 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Album.Cover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.File.Path)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre.Name)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DiscNr)
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Length)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TrackNr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiscNr)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Rating)
@@ -59,7 +89,7 @@
             @Html.DisplayFor(modelItem => item.Lyrics)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Length)
+            @Html.DisplayFor(modelItem => item.Cover)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Downloads)

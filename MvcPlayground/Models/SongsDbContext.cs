@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MvcPlayground.Models
 {
-    public class MusicDbContext : DbContext
+    public class SongsDbContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -14,11 +14,16 @@ namespace MvcPlayground.Models
         // automatically whenever you change your model schema, please use data migrations.
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-    
-        public MusicDbContext() : base("name=MusicDbContext")
+
+        public SongsDbContext() : base("name=SongsDbContext")
         {
         }
 
-        public System.Data.Entity.DbSet<MvcPlayground.Models.Song> Songs { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Song> Songs { get; set; }
+
+        public System.Data.Entity.DbSet<MvcPlayground.Models.File> Files { get; set; }
     }
 }

@@ -12,12 +12,13 @@ namespace MvcPlayground.Controllers
 {
     public class SongsController : Controller
     {
-        private MusicDbContext db = new MusicDbContext();
+        private SongsDbContext db = new SongsDbContext();
 
         // GET: Songs
         public ActionResult Index()
         {
-            return View(db.Songs.ToList());
+            var songs = db.Songs.Include(s => s.Album).Include(s => s.File).Include(s => s.Genre);
+            return View(songs.ToList());
         }
 
         // GET: Songs/Details/5
@@ -38,6 +39,9 @@ namespace MvcPlayground.Controllers
         // GET: Songs/Create
         public ActionResult Create()
         {
+            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Cover");
+            ViewBag.FileId = new SelectList(db.Files, "Id", "Path");
+            ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name");
             return View();
         }
 
@@ -46,7 +50,7 @@ namespace MvcPlayground.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,DiscNr,TrackNr,Rating,Comments,Lyrics,Length,Downloads")] Song song)
+        public ActionResult Create([Bind(Include = "Id,AlbumId,GenreId,FileId,Title,ReleaseDate,Length,TrackNr,DiscNr,Rating,Comments,Lyrics,Cover,Downloads")] Song song)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +59,9 @@ namespace MvcPlayground.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Cover", song.AlbumId);
+            ViewBag.FileId = new SelectList(db.Files, "Id", "Path", song.FileId);
+            ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name", song.GenreId);
             return View(song);
         }
 
@@ -70,6 +77,9 @@ namespace MvcPlayground.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Cover", song.AlbumId);
+            ViewBag.FileId = new SelectList(db.Files, "Id", "Path", song.FileId);
+            ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name", song.GenreId);
             return View(song);
         }
 
@@ -78,7 +88,7 @@ namespace MvcPlayground.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,DiscNr,TrackNr,Rating,Comments,Lyrics,Length,Downloads")] Song song)
+        public ActionResult Edit([Bind(Include = "Id,AlbumId,GenreId,FileId,Title,ReleaseDate,Length,TrackNr,DiscNr,Rating,Comments,Lyrics,Cover,Downloads")] Song song)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +96,9 @@ namespace MvcPlayground.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Cover", song.AlbumId);
+            ViewBag.FileId = new SelectList(db.Files, "Id", "Path", song.FileId);
+            ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name", song.GenreId);
             return View(song);
         }
 

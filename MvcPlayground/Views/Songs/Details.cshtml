@@ -11,6 +11,30 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Album.Cover)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Album.Cover)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File.Path)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.File.Path)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre.Name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
 
@@ -19,11 +43,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DiscNr)
+            @Html.DisplayNameFor(model => model.ReleaseDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DiscNr)
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
         </dd>
 
         <dt>
@@ -32,6 +64,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.TrackNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiscNr)
         </dd>
 
         <dt>
@@ -59,11 +99,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Length)
+            @Html.DisplayNameFor(model => model.Cover)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Length)
+            @Html.DisplayFor(model => model.Cover)
         </dd>
 
         <dt>

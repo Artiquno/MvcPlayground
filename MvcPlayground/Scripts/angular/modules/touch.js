@@ -1,1 +1,0 @@
-﻿angular.module('touch', ['ngTouch', 'ngStorage', 'angular-gestures']);

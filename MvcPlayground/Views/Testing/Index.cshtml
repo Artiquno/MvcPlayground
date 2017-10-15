@@ -2,7 +2,7 @@
     ViewBag.Title = "Have some fun";
 }
 
-@section Styles {
+@section styles {
 <link href="~/Content/FileDropperAnimation.css" rel="stylesheet" />	
 }
 
@@ -102,11 +102,11 @@
 	</form>
 </div>
 
-@section Scripts {
+@section scripts {
 	@Scripts.Render("~/bundles/angular")
-	@Scripts.Render("~/bundles/others")
+	@Scripts.Render("~/bundles/other")
 	<script src="~/bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>
 
-	<script src="~/Scripts/angular/modules/playground.js"></script>
-	<script src="~/Scripts/angular/controllers/playground.js"></script>
+	<script src="~/angular/modules/playground.js"></script>
+	<script src="~/angular/controllers/playground.js"></script>
 }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MvcPlayground.Models
 {
-    public class DbInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<SongsDbContext>
+    public class DbInitializer : System.Data.Entity.DropCreateDatabaseAlways<SongsDbContext>
     {
         protected override void Seed(SongsDbContext context)
         {
@@ -58,7 +58,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Audioslave - Like a Stone.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -76,7 +77,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Audioslave - Shadow on the Sun.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -110,7 +112,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Radiohead - Paranoid Android.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -128,7 +131,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Radiohead - Karma Police.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -163,7 +167,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "KOAN Sound - Introvert.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -181,7 +186,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "KOAN Sound - Sly Fox.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -199,7 +205,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "KOAN Sound - 80s Fitness.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -226,7 +233,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "KOAN Sound - Funk Blaster.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -244,7 +252,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "KOAN Sound - Meanwhile, In The Future.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -279,7 +288,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Led Zeppelin - Kashmir.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -297,7 +307,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Led Zeppelin - Down By The Seaside.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -332,7 +343,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Soundgarden - Fell On Black Days.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -350,7 +362,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Soundgarden - Superunknown.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -368,7 +381,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Soundgarden - Black Hole Sun.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -395,7 +409,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Soundgarden - Rusty Cage.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -413,7 +428,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Soundgarden - Outshined.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",
@@ -431,7 +447,8 @@ namespace MvcPlayground.Models
                                     {
                                         Filename = "Soundgarden - Searching With My Good Eye Closed.mp3",
                                         Path = "/Public/Music",
-                                        MimeType = "audio/mp3"
+                                        MimeType = "audio/mp3"
+
                                     },
                                     Comments = "",
                                     Lyrics = "",

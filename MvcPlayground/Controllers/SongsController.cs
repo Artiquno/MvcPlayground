@@ -39,8 +39,8 @@ namespace MvcPlayground.Controllers
         // GET: Songs/Create
         public ActionResult Create()
         {
-            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Cover");
-            ViewBag.FileId = new SelectList(db.Files, "Id", "Path");
+            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Title");
+            ViewBag.FileId = new SelectList(db.Files, "Id", "Filename");
             ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name");
             return View();
         }
@@ -59,8 +59,8 @@ namespace MvcPlayground.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Cover", song.AlbumId);
-            ViewBag.FileId = new SelectList(db.Files, "Id", "Path", song.FileId);
+            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Title", song.AlbumId);
+            ViewBag.FileId = new SelectList(db.Files, "Id", "Filename", song.FileId);
             ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name", song.GenreId);
             return View(song);
         }
@@ -77,8 +77,8 @@ namespace MvcPlayground.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Cover", song.AlbumId);
-            ViewBag.FileId = new SelectList(db.Files, "Id", "Path", song.FileId);
+            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Title", song.AlbumId);
+            ViewBag.FileId = new SelectList(db.Files, "Id", "Filename", song.FileId);
             ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name", song.GenreId);
             return View(song);
         }
@@ -96,8 +96,8 @@ namespace MvcPlayground.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Cover", song.AlbumId);
-            ViewBag.FileId = new SelectList(db.Files, "Id", "Path", song.FileId);
+            ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Title", song.AlbumId);
+            ViewBag.FileId = new SelectList(db.Files, "Id", "Filename", song.FileId);
             ViewBag.GenreId = new SelectList(db.Genres, "Id", "Name", song.GenreId);
             return View(song);
         }

@@ -1,11 +1,21 @@
 ﻿var module = angular.module('playground')
-.controller('PlaygroundController', ['$scope', 'Upload', '$http', '$localStorage', function($scope, $upload, $http, $localStorage) {
+    .controller('PlaygroundController', ['$scope', 'Upload', '$http', '$localStorage', function ($scope, $upload, $http, $localStorage) {
     $scope.$storage = $localStorage;
 
-    $('[ngf-drop]').on('dragover', function (e) {
-        e.preventDefault();
-        $('.newspaper-sound').get(0).play();
-    });
+    (function () {
+        var done = false;
+        $('[ngf-drop]').on('dragover', function (e) {
+            e.preventDefault();
+            if (!done) {
+                $('.newspaper-sound').get(0).play();
+            }
+            done = true;
+        });
+        $('[ngf-drop]').on('dragleave', function (e) {
+            e.preventDefault();
+            done = false;
+        });
+    })();
 
     $scope.user = {};
     if ($scope.$storage.user) {

@@ -2,6 +2,11 @@
 .controller('PlaygroundController', ['$scope', 'Upload', '$http', '$localStorage', function($scope, $upload, $http, $localStorage) {
     $scope.$storage = $localStorage;
 
+    $('[ngf-drop]').on('dragover', function (e) {
+        e.preventDefault();
+        $('.newspaper-sound').get(0).play();
+    });
+
     $scope.user = {};
     if ($scope.$storage.user) {
         $.extend(true, $scope.user, $scope.$storage.user);

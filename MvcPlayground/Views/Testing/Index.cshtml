@@ -2,13 +2,27 @@
     ViewBag.Title = "Have some fun";
 }
 
-<div ng-app="playground" ng-controller="PlaygroundController">
+@section Styles {
+<link href="~/Content/FileDropperAnimation.css" rel="stylesheet" />	
+}
+
+<div ng-app="playground" ng-controller="PlaygroundController" ngf-drop ngf-drag-over-style ngf-accept="'image/*'" ngf-pattern="'image/*'" ng-model="user.profileImage" ngf-resize="imageResizeOptions">
+	<div class="overlay">
+		<audio preload="auto" class="newspaper-sound">
+			<source src="~/Content/Sounds/newspaper.mp3" type="audio/mp3" />
+		</audio>
+		<div class="rotator">
+			<h1>WEEEEEEEEEEEEE!!!</h1>
+		</div>
+	</div>
+
 	<h2>So, what should we do?</h2>
+	<h4>Maybe try dropping an image?</h4>
 	
 	<form name="form" novalidate ng-submit="submit($event)" class="form-horizontal">
 		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
-				<div ng-model="user.profileImage" ngf-drop ngf-select ngf-drag-over-style ngf-resize="imageResizeOptions" class="profile-image">
+				<div ng-model="user.profileImage" ngf-accept="'image/*'" ngf-pattern="'image/*'" ngf-select ngf-resize="imageResizeOptions" class="profile-image">
 					<img ngf-src="user.profileImage" alt="" />
 					<div ng-hide="user.profileImage" class="image-helper">
 						<i class="fa fa-plus"></i>

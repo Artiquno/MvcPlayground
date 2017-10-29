@@ -7,6 +7,10 @@ module.controller('CreateSongController', ['$scope', '$http', function ($scope, 
     };
     console.log($scope.song);
 
+    $scope.pickedImage = function () {
+        var fd = new FormData($('form')[0]);
+        fd.append("Cover", $scope.song.cover.$ngfBlobUrl);
+    }
     function openDatepicker(datepicker) {
         var tester = document.createElement('input');
         tester.type = 'date';

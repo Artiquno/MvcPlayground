@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 <div ng-app="create-song" ng-controller="CreateSongController">
-	@using (Html.BeginForm("Create", "Songs", FormMethod.Post, new { @enctype = "multipart/form-data" })) 
+	@using (Html.BeginForm("Create", "Songs", FormMethod.Post, new { @enctype = "multipart/form-data", @name="createForm" })) 
 	{
 		@Html.AntiForgeryToken()
     
@@ -104,8 +104,8 @@
 			<div class="form-group">
 				@*@Html.LabelFor(model => model.Cover, htmlAttributes: new { @class = "control-label col-md-2" })*@
 				<div class="col-md-offset-2 col-md-10">
-					<input type="file" name="Cover" id="Cover" ngf-select ng-model="song.cover" />
-					<div class="form-control-file" ng-model="song.cover" ngf-select ngf-drop ngf-accept="'image/*'" ngf-pattern="'image/*'" id="Cover" name="Cover" for="Cover">
+					<input type="file" name="Cover" id="Cover" ngf-drop ngf-select ng-model="song.cover" />
+					@*<div class="form-control-file" ng-model="song.cover" ngf-select ngf-drop ngf-accept="'image/*'" ngf-pattern="'image/*'" ng-change="pickedImage()">
 						<div ng-show="!song.cover">
 							<i class="fa fa-file-image-o"></i>
 							<span>Drop or select cover image</span>
@@ -113,7 +113,7 @@
 						<div ng-cloak class="image-preview" ng-show="song.cover">
 							<img ngf-src="song.cover" alt=""/>
 						</div>
-					</div>
+					</div>*@
 					@Html.ValidationMessageFor(model => model.Cover, "", new { @class = "text-danger" })
 				</div>
 			</div>

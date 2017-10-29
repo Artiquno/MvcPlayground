@@ -4,6 +4,7 @@
   "description": "Just playing around with stuff and some other stuff",
   "main": "Startup.cs",
   "dependencies": {
+    "socket.io": "^2.0.4",
     "sweetalert": "^2.0.5"
   },
   "devDependencies": {},

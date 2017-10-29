@@ -4,4 +4,26 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<p>Let's try sockets!</p>
+<ul id="messages"></ul>
+<form action="">
+	<input type="text" name="message" id="message" />
+	<button type="submit">Send</button>
+</form>
+
+@section Scripts {
+	<script src="~/node_modules/socket.io-client/dist/socket.io.js"></script>
+	<script>
+		var socket = io('http://localhost:1337');
+
+		socket.on("message", function (msg) {
+			$("#messages").append("<li>").text(msg);
+		});
+		$('form').submit(function () {
+			console.log("Submitting...", $("#message").val());
+			socket.emit("new message", $("#message").val());
+			$("#message").val("");
+			return false;
+		});
+	</script>
+}

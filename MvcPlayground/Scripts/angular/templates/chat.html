@@ -1,0 +1,36 @@
+﻿<div class="live-chat">
+	<header class="clearfix" ng-click="minimize()">
+		<a href="#" class="chat-close" ng-click="close($event)">
+			<i class="fa fa-times"></i>
+		</a>
+		<h4>
+			<span class="online" ng-if="chat.isOnline"></span>
+			<!--<img src="{{ chat.image }}" alt="" />-->
+			<span ng-bind="chat.name"></span>
+			<span ng-if="chat.isTyping" class="chat-feedback" title="{{ chat.name }} is typing">
+				<i class="fa fa-spinner fa-pulse"></i>
+			</span>
+		</h4>
+		<span class="chat-message-counter">3</span>
+	</header>
+	<div class="chat">
+		<div class="chat-history">
+			<div ng-repeat="message in chat.messages | orderBy: 'time'">
+				<hr ng-if="message.sender != chat.messages[$index + 1].sender" />
+				<div class="chat-message chat-message-{{ message.sender ? 'right' : 'left' }} clearfix" >
+					<img ng-if="message.sender === false" src="{{ chat.image }}" alt="" width="32" height="32">
+					<span ng-if="message.sender != chat.messages[$index + 1].sender" class="chat-time" ng-bind="message.time | date: 'HH:mm'"></span>
+					<div class="chat-message-content clearfix">
+						<p ng-bind="message.message"></p>
+					</div> <!-- end chat-message-content -->
+				</div> <!-- end chat-message -->
+			</div>
+		</div> <!-- end chat-history -->
+		<form action="#" method="post">
+			<fieldset>
+				<input type="text" placeholder="Type your message…" autofocus>
+				<input type="hidden">
+			</fieldset>
+		</form>
+	</div> <!-- end chat -->
+</div> <!-- end live-chat -->

@@ -1114,11 +1114,13 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular\controllers\playground.js" />
+    <Content Include="Scripts\angular\directives\chat.js" />
     <Content Include="Scripts\angular\modules\playground.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular\templates\chat.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -1419,9 +1421,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\angular\directives\" />
     <Folder Include="Scripts\angular\services\" />
-    <Folder Include="Scripts\angular\templates\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

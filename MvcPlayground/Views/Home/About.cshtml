@@ -4,54 +4,14 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<div id="live-chat">
-	<header class="clearfix">
-		<a href="#" class="chat-close">
-			<i class="fa fa-times"></i>
-		</a>
-		<h4 class="online">Marco Biedermann</h4>
-		<span class="chat-message-counter">3</span>
-	</header>
-	<div class="chat">
-		<div class="chat-history">
-			<hr />
-			<div class="chat-message chat-message-right clearfix">
-				<img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
-				<span class="chat-time">13:35</span>
-				<div class="chat-message-content clearfix">
-					<p>Hi!</p>
-				</div> <!-- end chat-message-content -->
-			</div> <!-- end chat-message -->
-			<hr>
-			<div class="chat-message chat-message-left clearfix">
-				<img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
-				<span class="chat-time">13:37</span>
-				<div class="chat-message-content clearfix">
-					<h5>Marco Biedermann</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni vel debitis numquam qui tempora rem voluptatem delectus!</p>
-				</div> <!-- end chat-message-content -->
-			</div> <!-- end chat-message -->
-			<hr>
-			<div class="chat-message chat-message-right clearfix">
-				<img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
-				<span class="chat-time">13:38</span>
-				<div class="chat-message-content clearfix">
-					@*<h5>&nbsp;</h5>*@
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-				</div> <!-- end chat-message-content -->
-			</div> <!-- end chat-message -->
-		</div> <!-- end chat-history -->
-		<p class="chat-feedback">Your partner is typing…</p>
-		<form action="#" method="post">
-			<fieldset>
-				<input type="text" placeholder="Type your message…" autofocus>
-				<input type="hidden">
-			</fieldset>
-		</form>
-	</div> <!-- end chat -->
-</div> <!-- end live-chat -->
+<div ng-app="about" ng-controller="AboutController">
+	<chat chat-object="chat" ng-repeat="chat in chats" style="right: {{ ($index * 320) + 20 }}px"></chat>
+</div>
+
 @section Scripts {
+	@Scripts.Render("~/bundles/angular")
 	<script src="~/node_modules/socket.io-client/dist/socket.io.js"></script>
+	<script src="~/Scripts/angular/directives/chat.js"></script>
 	<script>
 		var socket = io('http://localhost:1337');
 
@@ -66,16 +26,55 @@
 		});
 	</script>
 	<script>
-		(function () {
-			$('#live-chat header').on('click', function () {
-				$('.chat').slideToggle(300, 'swing');
-				$('.chat-message-counter').fadeToggle(300, 'swing');
-			});
-
-			$('.chat-close').on('click', function (e) {
-				e.preventDefault();
-				$('#live-chat').fadeOut(300);
-			});
-		})();
+		angular.module("about", ["chat"])
+			.controller("AboutController", ["$scope", function ($scope) {
+				$scope.chats = [
+					{
+						name: "Jim",
+						isTyping: false,
+						messages: []
+					},
+					{
+						image: "/Content/Images/question_mark_square.jpg",
+						name: "Jack",
+						isTyping: false,
+						isOnline: true,
+						messages: [
+							{
+								time: new Date(2016, 10, 5, 10, 22, 54),
+								sender: true,
+								message: "Hello Jack"
+							},
+							{
+								sender: true,
+								time: new Date(2016, 10, 5, 10, 23, 15),
+								message: "How are you?"
+							},
+							{
+								sender: false,
+								time: new Date(2016, 10, 5, 13, 19, 11),
+								message: "Hey logged user!"
+							},
+							{
+								sender: true,
+								time: new Date(2016, 10, 5, 13, 22, 13),
+								message: "I have a name you know..."
+							},
+							{
+								sender: false,
+								time: new Date(2016, 10, 5, 13, 20, 15),
+								message: "How are you?"
+							}
+						]
+					},
+					{
+						name: "John",
+						image: "/Content/Images/question_mart_square.jpg",
+						isTyping: true,
+						isOnline: true,
+						messages: []
+					}
+				];
+			}]);
 	</script>
 }

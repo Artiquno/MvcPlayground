@@ -5,7 +5,9 @@
 <h3>@ViewBag.Message</h3>
 
 <div ng-app="about" ng-controller="AboutController">
-	<chat chat-object="chat" ng-repeat="chat in chats" style="right: {{ ($index * 320) + 20 }}px"></chat>
+	<div class="chat-holder">
+		<chat chat-object="chat" ng-repeat="chat in chats"></chat>
+	</div>
 </div>
 
 @section Scripts {
@@ -69,7 +71,7 @@
 					},
 					{
 						name: "John",
-						image: "/Content/Images/question_mart_square.jpg",
+						image: "/Content/Images/question_mark_square.jpg",
 						isTyping: true,
 						isOnline: true,
 						messages: []

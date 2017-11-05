@@ -234,7 +234,7 @@ chat {
 
 .live-chat input[type="text"] {
     border-radius: 3px;
-    padding: 8px;
+    padding: 4px;
     outline: none;
     width: 100%;
 }
@@ -285,9 +285,12 @@ chat {
     text-align: right;
 }
 .chat-message-right .chat-message-content {
-    background-color: #216eff;
+    background-color: #3c5369;
     color: #dedede;
     float: right;
+}
+.chat-message-left .chat-message-content {
+    margin-left: 45px;
 }
 .chat-message-right .chat-message-content:after,
 .chat-message-left .chat-message-content:before {
@@ -302,11 +305,11 @@ chat {
     transform: rotate(45deg);
 }
 .chat-message-right .chat-message-content:after {
-    right: -6px;
+    right: -5px;
     background-color: inherit;
 }
 .chat-message-left .chat-message-content:before {
-    left: -6px;
+    left: -5px;
     background-color: inherit;
 }
 
@@ -321,7 +324,6 @@ chat {
 }
 
 .chat-message-content {
-    margin-left: 45px;
     border-radius: 10px;
     background-color: #ededed;
     padding: 10px;

@@ -18,20 +18,25 @@ namespace MvcPlayground.Models
         public string Title { get; set; }
 
         [Column(TypeName = "date")]
+        [DataType(DataType.Date)]
         public DateTime? ReleaseDate { get; set; }
-
+        
+        [ScaffoldColumn(false)]
         public int Length { get; set; }
         public int? TrackNr { get; set; }
         public int? DiscNr { get; set; }
         public int Rating { get; set; }
 
         [StringLength(2048)]
+        [DataType(DataType.MultilineText)]
         public string Comments { get; set; }
         [StringLength(2048)]
+        [DataType(DataType.MultilineText)]
         public string Lyrics { get; set; }
 
         [StringLength(256)]
         public string Cover { get; set; }
+        [ScaffoldColumn(false)]
         public int Downloads { get; set; }
 
         public virtual Album Album { get; set; }

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcPlayground.Models;
+using MvcPlayground.Helpers;
 
 namespace MvcPlayground.Controllers
 {
@@ -50,13 +51,15 @@ namespace MvcPlayground.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AlbumId,GenreId,FileId,Title,ReleaseDate,Length,TrackNr,DiscNr,Rating,Comments,Lyrics,Cover,Downloads")] Song song)
+        public ActionResult Create([Bind(Include = "Id,AlbumId,GenreId,Title,ReleaseDate,TrackNr,DiscNr,Rating,Comments,Lyrics,Cover")] Song song)
         {
             if (ModelState.IsValid)
             {
-                db.Songs.Add(song);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var path = FileHelper.SaveImage(Request.Files["Cover"]);
+
+                //db.Songs.Add(song);
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
             }
 
             ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Title", song.AlbumId);

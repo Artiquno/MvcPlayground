@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MvcPlayground.Models.Song>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Song list";
 }
 
 <h2>Index</h2>
@@ -13,9 +13,6 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Album.Cover)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.File.Path)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Genre.Name)
@@ -30,25 +27,7 @@
             @Html.DisplayNameFor(model => model.Length)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TrackNr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiscNr)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lyrics)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cover)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Downloads)
         </th>
         <th></th>
     </tr>
@@ -56,10 +35,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Album.Cover)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.File.Path)
+			<img src="@Html.DisplayFor(modelItem => item.Album.Cover)" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Genre.Name)
@@ -74,25 +50,7 @@
             @Html.DisplayFor(modelItem => item.Length)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TrackNr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiscNr)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lyrics)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cover)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Downloads)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

@@ -9,8 +9,11 @@ namespace MvcPlayground.Models
     public partial class Song
     {
         public int Id { get; set; }
+        [Display(Name = "Album")]
         public int AlbumId { get; set; }
+        [Display(Name = "Genre")]
         public int GenreId { get; set; }
+        [Display(Name = "File")]
         public int FileId { get; set; }
 
         [Required]
@@ -25,7 +28,9 @@ namespace MvcPlayground.Models
         
         [ScaffoldColumn(false)]
         public int Length { get; set; }
+        [Display(Name = "Track Nr.")]
         public int? TrackNr { get; set; }
+        [Display(Name = "Disc Nr.")]
         public int? DiscNr { get; set; }
         public int Rating { get; set; }
 

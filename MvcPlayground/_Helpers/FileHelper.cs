@@ -11,14 +11,15 @@ namespace MvcPlayground.Helpers
 
         public static string SaveFile(HttpPostedFileBase file, string path = "~/Uploads")
         {
-            string res = HttpContext.Current.Server.MapPath(path + "/" + file.FileName);
-            //file.SaveAs(path + file.FileName)
-            return res;
+            string filename = System.Web.HttpUtility.UrlEncode(file.FileName);
+            string res = HttpContext.Current.Server.MapPath(path + "/" + filename);
+            file.SaveAs(res);
+            return path.Replace("~", "") + "/" + filename;
         }
 
         public static string SaveImage(HttpPostedFileBase file)
         {
-            return SaveFile(file, "~/Uploads/Images");
+            return SaveFile(file, ImagePath);
         }
     }
 }

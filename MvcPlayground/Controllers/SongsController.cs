@@ -53,13 +53,38 @@ namespace MvcPlayground.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,AlbumId,GenreId,Title,ReleaseDate,TrackNr,DiscNr,Rating,Comments,Lyrics,Cover")] Song song)
         {
-            if (ModelState.IsValid)
-            {
-                var path = FileHelper.SaveImage(Request.Files["Cover"]);
+            var file = Request.Files["FileId"];
+            var cover = Request.Files["Cover"];
+            bool fileErrors = false;
 
-                //db.Songs.Add(song);
-                //db.SaveChanges();
-                //return RedirectToAction("Index");
+            // Note: Find a better way for validation
+            if (file.ContentType.IndexOf("audio/") == -1 || cover.ContentType.IndexOf("image/") == -1)
+            {
+                fileErrors = true;
+            }
+            if (ModelState.IsValid && !fileErrors)
+            {
+                string filePath = FileHelper.SaveFile(file, "~/Content/Music");
+                File dbFile = new File
+                {
+                    Filename = HttpUtility.UrlEncode(file.FileName),
+                    Path = "/Content/Music",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    MimeType = file.ContentType,
+                    Size = file.ContentLength
+                };
+                db.Files.Add(dbFile);
+                db.SaveChanges();
+
+                string path = FileHelper.SaveFile(cover, "~/Uploads/Covers");
+
+                song.Cover = path;
+                song.FileId = dbFile.Id;
+
+                db.Songs.Add(song);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
             ViewBag.AlbumId = new SelectList(db.Albums, "Id", "Title", song.AlbumId);

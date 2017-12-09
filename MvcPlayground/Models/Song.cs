@@ -19,6 +19,8 @@ namespace MvcPlayground.Models
 
         [Column(TypeName = "date")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Release Date")]
         public DateTime? ReleaseDate { get; set; }
         
         [ScaffoldColumn(false)]

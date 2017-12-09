@@ -3,6 +3,7 @@ import eyed3
 import pyodbc
 import json
 import sys
+from math import floor
 
 db_data = {}
 home = os.path.expanduser("~")
@@ -142,14 +143,11 @@ def save_library():
 		q, i = add_song(song_data)
 		query += q
 		items += i
-
-		if index % 1 == 0:
+		if index % floor(2100 / len(i)) == 0:
 			query = query[:-2]
-			try:
-				cursor.execute(query, items)
-				conn.commit()
-			except BaseException as error:
-				print("Could not insert {filename}: {error}".format(filename = song, error = error))
+
+			cursor.execute(query, items)
+			conn.commit()
 
 			query = "INSERT INTO Songs (AlbumId, GenreId, FileId, Title, ReleaseDate, Length, TrackNr, DiscNr, Rating, Comments, Lyrics, Cover, Downloads) VALUES "
 			items = ()
@@ -157,7 +155,6 @@ def save_library():
 	if(len(items) > 0):
 		query = query[:-2]
 
-		cursor = conn.cursor()
 		cursor.execute(query, items)
 		conn.commit()
 

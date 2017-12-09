@@ -1424,6 +1424,7 @@
     <Folder Include="angular\services\" />
     <Folder Include="angular\templates\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Music\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
